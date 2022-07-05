@@ -10,7 +10,13 @@ export default function Home({ artists }) {
         <meta name="keywords" content="spotify artists" />
       </Head>
 
-
+      {/* <div>
+        {
+          artists.map(artist => {
+            return (<p key={artist.id}>{artist}</p>)
+          })
+        }
+      </div> */}
     </>
   );
 }
