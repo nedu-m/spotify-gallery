@@ -1,6 +1,5 @@
 import Head from 'next/head'
-
-export default function Home() {
+const about = () => {
   return (
     <>
       <Head>
@@ -8,7 +7,9 @@ export default function Home() {
         <meta name='keywords' content='spotify artists' />
       </Head>
 
-      <h1>Hello</h1>
+      <h2>About</h2>
     </>
   )
 }
+
+export default about
