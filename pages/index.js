@@ -2,7 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 
 export default function Home({ artists }) {
-  console.log(artists);
+  const names = Array.from(artists.artists.map((artist) => artist.name));
+  // const randomNames = names[Math.floor(Math.random() * names.length)];
+  const followers = Array.from(artists.artists.map((artist) => artist.followers.total));
+  const images = Array.from(artists.artists.map((artist) => artist.images[0].url));
+  const genres = Array.from(artists.artists.map((artist) => artist.genres[0]));
 
   return (
     <>
@@ -11,13 +15,15 @@ export default function Home({ artists }) {
         <meta name="keywords" content="spotify artists" />
       </Head>
 
-      {Object.keys(artists).map((artist) => {
+      {names.map((name, index) => {
         return (
-          <div key={artist.toString()}>
-            <h1 >{artist.name}</h1>
-            <p>{artist.followers}</p>
+          <div key={name}>
+            <h3>{name}</h3>
+            <Image src={images[index]} alt={name} width={200} height={200} />
+            <h5>Genres: {genres[index]}</h5>
+            <p>{followers[index]}</p>
           </div>
-        );
+        )
       })}
     </>
   );

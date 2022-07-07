@@ -8,7 +8,10 @@ const nextConfig = {
       use: ['file-loader'],
     });
     return config;
-  }
+  },
+  images: {
+    domains: ['i.scdn.co'],
+  },
 };
 
 module.exports = nextConfig;
