@@ -1,16 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 14px;
+}
+
 html,
 body {
-  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --color-text: #000;
+  --color-text-alt: #000;
+  --color-bg: #1db954;
+  --color-link: #000;
+  --color-link-hover: #000;
+  --color-link-alt: #000;
+  --color-type: #000;
+  --type-line-opacity: 0.05;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  color: var(--color-link);
+  outline: none;
+  font-family: "Archivo", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
+a:hover {
+  text-decoration: none;
+  color: var(--color-link-hover);
+  outline: none;
+}
+
+a.link__alt {
+  text-decoration: none;
+  color: var(--color-link-alt);
+  text-decoration-color: #000;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+	keyboard-focus on browsers that do support
+	 :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
 }
