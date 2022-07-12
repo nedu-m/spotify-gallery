@@ -1,10 +1,18 @@
 import Main from '../components/Main'
+import Head from 'next/head'
 import ArtistList from '../components/ArtistList'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ artists }) {
+export default function Home({ artists, details }) {
+  console.log(details);
   return (
     <>
+      <Head>
+        <title>Favify</title>
+        <meta name="description" content="Spotify Favorites" />
+        <meta name="keywords" lang='en' content="Spotify, favorites, music, artists" />
+      </Head>
+
       <div className={styles.loading}>
         <Main />
         <ArtistList artists={artists} />

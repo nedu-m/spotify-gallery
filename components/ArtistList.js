@@ -10,7 +10,7 @@ export default function ArtistList({ artists }) {
             <Image
               src={artist.images[0].url}
               alt={artist.name}
-              width={200}
+              width={232}
               height={200}
               className={artistStyle.item__img}
             />

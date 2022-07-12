@@ -1,0 +1,149 @@
+.navigation button {
+  margin-top: 0;
+  z-index: 1000;
+  border: 0;
+  padding: 0;
+  width: 50px;
+  top: 0;
+  left: 0;
+  font-display: swap;
+  margin: 0;
+}
+
+.arrow {
+  font-size: 1.9rem;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.arrow:hover,
+.arrow:focus {
+  outline: none;
+  stroke: #823725;
+}
+
+.article__wrap {
+  position: absolute;
+  top: 5vh;
+  width: 100%;
+  justify-self: center;
+  align-self: end;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.article {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  width: 100%;
+  align-items: start;
+  grid-template-areas:
+    "img img"
+    "number title"
+    "intro intro"
+    "desc desc";
+}
+
+.article__current {
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
+}
+
+.article__img_wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  grid-area: img;
+  transform-origin: 50% 100%;
+  margin-bottom: 1rem;
+  border-radius: 17px 17px 0 0;
+}
+
+.article__img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 35%;
+}
+
+.article__number {
+  grid-area: number;
+  font-weight: bold;
+}
+
+.article__title {
+  grid-area: title;
+  line-height: 0.85;
+  font-size: 8vw;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: quiche-sans, sans-serif;
+  color: var(--color-type);
+  position: relative;
+  margin: 1rem 0 0.5rem;
+  pointer: default;
+}
+
+.article__intro {
+  grid-area: intro;
+  font-weight: bold;
+  padding-right: 2rem;
+}
+
+.article__description {
+  grid-area: desc;
+  overflow: hidden;
+  padding-right: 2rem;
+}
+
+.arrow:hover,
+.arrow:focus {
+  outline: none;
+  stroke: #823725;
+}
+
+@media screen and (min-width: 53em) {
+  .arrow {
+    position: absolute;
+    left: calc(((100vw - (38vw + 280px)) / 2) + 1.5rem);
+  }
+  .article_wrap {
+    top: 20vh;
+    height: 80vh;
+    padding: 0;
+  }
+  .article {
+    height: 100%;
+    width: calc(38vw + 280px);
+    margin: 0 auto;
+    grid-template-rows: 10vw 2rem 12vw auto auto;
+    grid-template-columns: 1.5rem 30% 1fr 1.5rem;
+    grid-template-areas:
+      "... ... img ..."
+      "number ... img ..."
+      "... title img ..."
+      "... intro img ..."
+      "... desc img ...";
+  }
+  .article__title {
+    grid-column-end: 4;
+    margin: 0;
+  }
+  .article__intro {
+    margin: 1.5rem 0;
+  }
+  .article__img_wrap {
+    align-self: end;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+  .article__img {
+    background-position: 50% 50%;
+  }
+}
