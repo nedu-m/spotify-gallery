@@ -1,10 +1,19 @@
+import { useState } from 'react';
 import Main from '../components/Main'
 import Head from 'next/head'
 import ArtistList from '../components/ArtistList'
+import ArtistDetails from '../components/ArtistDetails'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ artists, details }) {
-  console.log(details);
+export default function Home({ artists, artist1, artist2, artist3, artist4 }) {
+  //set state to track which artist is selected
+  const [selectedArtist, setSelectedArtist] = useState(artist1);
+  const [selectedArtist2, setSelectedArtist2] = useState(artist2);
+  const [selectedArtist3, setSelectedArtist3] = useState(artist3);
+  const [selectedArtist4, setSelectedArtist4] = useState(artist4);
+
+  //
+
   return (
     <>
       <Head>
@@ -16,6 +25,7 @@ export default function Home({ artists, details }) {
       <div className={styles.loading}>
         <Main />
         <ArtistList artists={artists} />
+        <ArtistDetails artist1={artist1} />
       </div>
     </>
   )
@@ -30,13 +40,29 @@ export const getStaticProps = async () => {
     }
   };
 
-  const res = await fetch('https://spotify23.p.rapidapi.com/artists/?ids=3wcj11K77LjEY1PkEazffa%2C1E5hfn5BduN2nnoZCJmUVG%2C1fYVmAFB7sC7eDoF3mJXla%2C3tVQdUvClmAT7URs9V3rsp%2C3TVXtAsR1Inumwj472S9r4%2C1RyvyyTE3xzB2ZywiAwp0i%2C5f7VJjfbwm532GiveGC0ZK%2C2LIk90788K0zvyj2JJVwkJ%2C2YZyLoL8N0Wb9xBt1NhZWg%2C6jGMq4yGs7aQzuGsMgVgZR%2C7bXgB6jMjp9ATFy66eO08Z%2C12kjvw4e3gLp6qVHO65n7W%2C20sxb77xiYeusSH8cVdatc%2C14CHVeJGrR5xgUGQFV5BVM', options);
-  const data = await res.json();
+  const urls = [
+    'https://spotify23.p.rapidapi.com/artists/?ids=3tVQdUvClmAT7URs9V3rsp%2C2YZyLoL8N0Wb9xBt1NhZWg%2C3TVXtAsR1Inumwj472S9r4%2C3wcj11K77LjEY1PkEazffa',
+    'https://spotify23.p.rapidapi.com/artist_overview/?id=3wcj11K77LjEY1PkEazffa',
+    'https://spotify23.p.rapidapi.com/artist_overview/?id=3TVXtAsR1Inumwj472S9r4',
+    'https://spotify23.p.rapidapi.com/artist_overview/?id=3tVQdUvClmAT7URs9V3rsp',
+    'https://spotify23.p.rapidapi.com/artist_overview/?id=2YZyLoL8N0Wb9xBt1NhZWg',
+  ]
 
+  const responses = await Promise.all(urls.map(url => fetch(url, options)))
+  const data = await Promise.all(responses.map(res => res.json()));
+  const artists = data[0].artists
+  const { artist } = data[1]
+  const { artist: artist2 } = data[2]
+  const { artist: artist3 } = data[3]
+  const { artist: artist4 } = data[4]
 
   return {
     props: {
-      artists: data.artists
-    },
-  };
-}
+      artists: artists,
+      artist1: artist,
+      artist2: artist2,
+      artist3: artist3,
+      artist4: artist4,
+    }
+  }
+};
