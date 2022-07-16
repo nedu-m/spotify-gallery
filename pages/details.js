@@ -4,7 +4,7 @@ import detailStyles from "../styles/Details.module.css"
 import { CgArrowLongLeft } from 'react-icons/cg';
 
 export default function Details({ artist }) {
-  console.log(artist)
+  
 
   return (
     <>

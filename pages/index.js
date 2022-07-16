@@ -4,7 +4,7 @@ import ArtistList from '../components/ArtistList'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ artists, details }) {
-  console.log(details);
+  
   return (
     <>
       <Head>
