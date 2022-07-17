@@ -17,7 +17,6 @@ export default function ArtistList({ artists }) {
             <figcaption className={artistStyle.item__caption}>
               <h3 className={artistStyle.item__title}>{artist.name}</h3>
               <p className={artistStyle.item__description}>{artist.genres[0]}</p>
-              {/* <p>{artist.followers.total} followers</p> */}
             </figcaption>
           </figure>
         ))}

@@ -7,7 +7,7 @@ const {
 } = process.env;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
-const ENDPOINT = `https://api.spotify.com/v1/artists?ids=2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6`;
+const ENDPOINT = `https://api.spotify.com/v1/artists?ids=3tVQdUvClmAT7URs9V3rsp%2C3wcj11K77LjEY1PkEazffa%2C3TVXtAsR1Inumwj472S9r4%2C2YZyLoL8N0Wb9xBt1NhZWg%2C75VKfyoBlkmrJFDqo1o2VY%2C1fYVmAFB7sC7eDoF3mJXla%2C1RyvyyTE3xzB2ZywiAwp0i%2C2IK173RXLiCSQ8fhDlAb3s`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
@@ -47,6 +47,12 @@ export default async (_, res) => {
   const artist = await response.json();
 
   return res.status(200).json({
-    artist: artist.artists,
+    artist: artist.artists.map((_artist) => ({
+      name: _artist.name,
+      id: _artist.id,
+      url: _artist.external_urls.spotify,
+      coverImage: _artist.images[1],
+      genre: _artist.genres[0],
+    })),
   });
 };
