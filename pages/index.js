@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
   const { data } = useSWR('/api/spotify', fetcher)
-  console.log(data)
+  
 
   return (
     <>
