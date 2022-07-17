@@ -1,11 +1,29 @@
 import Image from 'next/image';
 import artistStyle from '../styles/ArtistList.module.css'
 
-export default function ArtistList({ artists }) {
+export default function ArtistList({ data }) {
+  console.log(data)
   return (
     <>
       <section className={artistStyle.item__wrap}>
-        {artists.map((artist) => (
+        {/* {data.map((artist) => (
+          <div key={artist.id}>
+            <a href={artist.url}>
+              <Image
+                src={artist.coverImage}
+                alt={artist.name}
+                width={200}
+                height={200}
+              />
+            </a>
+            <div>
+              <h3>{artist.name}</h3>
+              <p>{artist.genre}</p>
+            </div>
+          </div>
+        ))} */}
+
+        {/* {artists.map((artist) => (
           <figure className={artistStyle.item} data-article="artist-1" key={artist.id}>
             <Image
               src={artist.images[0].url}
@@ -19,7 +37,7 @@ export default function ArtistList({ artists }) {
               <p className={artistStyle.item__description}>{artist.genres[0]}</p>
             </figcaption>
           </figure>
-        ))}
+        ))} */}
       </section>
     </>
   )
