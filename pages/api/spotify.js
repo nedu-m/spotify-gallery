@@ -37,22 +37,16 @@ export const getArtist = async () => {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default async (_, res) => {
-  const response = await getArtist();
+// export default async (_, res) => {
+//   const response = await getArtist();
 
-  if (response.status === 204 || response.status > 400) {
-    return res.status(200).json(`${response.status} ${response.statusText}`);
-  }
+//   if (response.status === 204 || response.status > 400) {
+//     return res.status(200).json(`${response.status} ${response.statusText}`);
+//   }
 
-  const artist = await response.json();
+//   const artists = await response.json();
 
-  return res.status(200).json({
-    artist: artist.artists.map((_artist) => ({
-      name: _artist.name,
-      id: _artist.id,
-      url: _artist.external_urls.spotify,
-      coverImage: _artist.images[1],
-      genre: _artist.genres[0],
-    })),
-  });
-};
+//   return res.status(200).json({
+//     artists
+//   });
+// };
