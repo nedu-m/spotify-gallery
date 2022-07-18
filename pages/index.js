@@ -1,5 +1,5 @@
 // import useSWR from 'swr';
-// import { useState } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 import { getArtist } from './api/spotify';
 import Main from '../components/Main'
@@ -34,6 +34,10 @@ export async function getStaticProps() {
 }
 
 export default function Home({ artists, error }) {
+  // const [showArtist, setShowArtist] = useState(null);
+  // const list = Object.keys(artists);
+  // console.log(list)
+
   return (
     <>
       <Head>
