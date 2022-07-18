@@ -10,7 +10,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['i.scdn.co'],
+    domains: ['i.scdn.co', 'mosaic.scdn.co'],
   },
 };
 

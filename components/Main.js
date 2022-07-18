@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 const Main = () => {
@@ -19,9 +20,15 @@ const Main = () => {
           </div>
           <div className={styles.frame__author}><a className={styles.link__alt} href="https://github.com/nedu-m">@Nedum</a></div>
           <nav className={styles.frame__links}>
-            <a href='#'> Playlists</a>
-            <a href='#'> Podcasts</a>
-            <a href='#'> Search</a>
+            <Link href="/">
+              <a>Artists</a>
+            </Link>
+            <Link href="/playlists">
+              <a>Playlists</a>
+            </Link>
+            <Link href="/podcasts">
+              <a>Podcasts</a>
+            </Link>
           </nav>
         </div>
       </main>

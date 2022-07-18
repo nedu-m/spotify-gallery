@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { getArtist } from './api/spotify';
 import Main from '../components/Main'
 import ArtistList from '../components/ArtistList'
-// import ArtistDetails from '../components/ArtistDetails'
 import styles from '../styles/Home.module.css'
 
 //getStaticProps
