@@ -3,28 +3,10 @@ import artistStyle from '../styles/ArtistList.module.css'
 
 export default function ArtistList({ artists }) {
   console.log(Array.isArray(artists));
-  const artist = Array.from(artists.map((artist) => artist))
 
   return (
     <>
       <section className={artistStyle.item__wrap}>
-        {/* {artist.map((artist) => (
-          <div key={artist.id}>
-            <a href={artist.url}>
-              <Image
-                src={artist.coverImage}
-                alt={artist.name}
-                width={200}
-                height={200}
-              />
-            </a>
-            <div>
-              <h3>{artist.name}</h3>
-              <p>{artist.genre}</p>
-            </div>
-          </div>
-        ))} */}
-
         {artists.map((artist) => (
           <figure className={artistStyle.item} data-article="artist-1" key={artist.id}>
             <Image
