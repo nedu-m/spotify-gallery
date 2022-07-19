@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { getArtist } from './api/spotify';
 import Main from '../components/Main'
 import ArtistList from '../components/ArtistList'
+import Error from '../components/Error';
 import styles from '../styles/Home.module.css'
 
 //getStaticProps
@@ -34,10 +35,6 @@ export async function getStaticProps() {
 
 export default function Home({ artists, error }) {
 
-  if (error) {
-    return <div className={styles.error}>{error} 😪</div>;
-  }
-
   return (
     <>
       <Head>
@@ -47,7 +44,10 @@ export default function Home({ artists, error }) {
       </Head>
       <div className={styles.loading}>
         <Main />
-        <ArtistList artists={artists} />
+        {/* If error show component */}
+        {error && <Error error={error} />}
+        {/* If no error show component */}
+        {!error && <ArtistList artists={artists} />}
       </div>
     </>
   )

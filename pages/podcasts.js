@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Main from '../components/Main'
 import { getPodcastList } from './api/spotify';
+import Error from '../components/Error';
 import PodcastList from '../components/PodcastList'
 import styles from '../styles/Home.module.css'
 
@@ -31,9 +32,6 @@ export async function getStaticProps() {
 }
 
 export default function Podcasts({ podcasts, error }) {
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   return (
     <>
@@ -44,7 +42,10 @@ export default function Podcasts({ podcasts, error }) {
       </Head>
       <div className={styles.loading}>
         <Main />
-        <PodcastList podcasts={podcasts} />
+        {/* If error show component */}
+        {error && <Error error={error} />}
+        {/* If no error show component */}
+        {!error && <PodcastList podcasts={podcasts} />}
       </div>
     </>
   )
