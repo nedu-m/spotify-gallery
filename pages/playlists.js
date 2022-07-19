@@ -31,6 +31,10 @@ export async function getStaticProps() {
 
 export default function Playlists({ playlists, error }) {
 
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <>
       <Head>

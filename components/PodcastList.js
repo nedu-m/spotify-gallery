@@ -1,22 +1,22 @@
 import Image from 'next/image';
 import listStyle from '../styles/Listing.module.css'
 
-export default function PlayList({ playlists }) {
+export default function PodcastList({ podcasts }) {
   return (
     <>
       <section className={listStyle.item__wrap}>
-        {playlists.map((playlist) => (
-          <figure className={listStyle.item} data-article="artist-1" key={playlist.id}>
+        {podcasts.map((podcast) => (
+          <figure className={listStyle.item} data-article="artist-1" key={podcast.id}>
             <Image
-              src={playlist.coverImage}
-              alt={playlist.name}
+              src={podcast.coverImage}
+              alt={podcast.name}
               width={250}
               height={200}
               className={listStyle.item__img}
             />
             <figcaption className={listStyle.item__caption}>
-              <a href={playlist.url}>
-                <h3>{playlist.name}</h3>
+              <a href={podcast.url}>
+                <h3>{podcast.name}</h3>
               </a>
             </figcaption>
           </figure>

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap");
-@import url("https://use.typekit.net/cwg6wqv.css");
+/* @import url("https://use.typekit.net/cwg6wqv.css"); */
 
 *,
 *::after,
@@ -29,6 +29,7 @@ body {
   --type-line-opacity: 0.05;
   color: var(--color-text);
   background-color: var(--color-bg);
+  font-display: auto;
   font-family: "Archivo", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,7 +39,8 @@ a {
   text-decoration: underline;
   color: var(--color-link);
   outline: none;
-  font-family: "halyard-display", "Archivo", sans-serif;
+  font-family: "Archivo", sans-serif;
+  font-display: auto;
 }
 
 a:hover {

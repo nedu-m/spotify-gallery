@@ -185,7 +185,7 @@
   color: var(--color-type);
   position: relative;
   margin: 1rem 0 0.5rem;
-  pointer: default;
+  cursor: pointer;
 }
 
 .article__intro {

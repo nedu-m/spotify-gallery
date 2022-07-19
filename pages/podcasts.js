@@ -1,14 +1,12 @@
-// import useSWR from 'swr';
-import { useState } from 'react';
 import Head from 'next/head';
-import { getArtist } from './api/spotify';
 import Main from '../components/Main'
-import ArtistList from '../components/ArtistList'
+import { getPodcastList } from './api/spotify';
+import PodcastList from '../components/PodcastList'
 import styles from '../styles/Home.module.css'
 
 //getStaticProps
 export async function getStaticProps() {
-  const response = await getArtist();
+  const response = await getPodcastList();
 
   if (response.status === 204 || response.status > 400) {
     return {
@@ -18,22 +16,21 @@ export async function getStaticProps() {
     };
   }
 
-  const artists = await response.json();
+  const podcasts = await response.json();
   return {
     props: {
-      artists: artists.artists.map((artist) => ({
-        id: artist.id,
-        name: artist.name,
-        genre: artist.genres[0],
-        coverImage: artist.images[0].url,
-        url: artist.external_urls.spotify,
+      //loop through the podcasts and create an array of objects
+      podcasts: podcasts.episodes.map((podcast) => ({
+        id: podcast.id,
+        name: podcast.name,
+        coverImage: podcast.images[0].url,
+        url: podcast.external_urls.spotify,
       })),
     },
   }
 }
 
-export default function Home({ artists, error }) {
-
+export default function Podcasts({ podcasts, error }) {
   if (error) {
     return <div>{error}</div>;
   }
@@ -47,7 +44,7 @@ export default function Home({ artists, error }) {
       </Head>
       <div className={styles.loading}>
         <Main />
-        <ArtistList artists={artists} />
+        <PodcastList podcasts={podcasts} />
       </div>
     </>
   )

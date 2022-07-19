@@ -1,24 +1,24 @@
 import Image from 'next/image';
-import artistStyle from '../styles/ArtistList.module.css'
+import listStyle from '../styles/Listing.module.css'
 
 export default function ArtistList({ artists }) {
   return (
     <>
-      <section className={artistStyle.item__wrap}>
+      <section className={listStyle.item__wrap}>
         {artists.map((artist) => (
-          <figure className={artistStyle.item} data-article="artist-1" key={artist.id}>
+          <figure className={listStyle.item} data-article="artist-1" key={artist.id}>
             <Image
               src={artist.coverImage}
               alt={artist.name}
               width={250}
               height={200}
-              className={artistStyle.item__img}
+              className={listStyle.item__img}
             />
-            <figcaption className={artistStyle.item__caption}>
+            <figcaption className={listStyle.item__caption}>
               <a href={artist.url}>
                 <h3>{artist.name}</h3>
               </a>
-              <p className={artistStyle.item__description}>{artist.genre}</p>
+              <p className={listStyle.item__description}>{artist.genre}</p>
             </figcaption>
           </figure>
         ))}

@@ -1,0 +1,19 @@
+{
+  "connector": { "name": "jsonc" },
+  "formatters": [
+    { "name": "json", "extension": "json" }
+  ],
+  "hints": {
+    "no-html-only-headers": [
+      "warning",
+      {
+        "ignore": [
+          "Content-Security-Policy"
+        ],
+        "include": [
+          "Custom-Header"
+        ]
+      }
+    ]
+  }
+}
