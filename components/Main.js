@@ -15,7 +15,11 @@ const Main = () => {
         </div>
         <div className={styles.frame}>
           <div className={styles.frame__title_wrapper}>
-            <h1 className={styles.frame__title}>Favify</h1>
+            <h1 className={styles.frame__title}>
+              <Link href="/">
+                Favify
+              </Link>
+            </h1>
             {/* <p className={styles.frame__tagline}>Inspired by this <a className={styles.link} href="https://dribbble.com/shots/16174007-Kinetic-Typography">shot</a></p> */}
           </div>
           <div className={styles.frame__author}><a className={styles.link__alt} href="https://github.com/nedu-m">@Nedum</a></div>

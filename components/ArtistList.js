@@ -21,7 +21,7 @@ export default function ArtistList({ artists }) {
             />
             <figcaption className={listStyle.item__caption}>
               <a href={artist.url}>
-                <h3>{artist.name}</h3>
+                <h3 className={listStyle.external}>{artist.name}</h3>
               </a>
               <p className={listStyle.item__description}>{artist.genre}</p>
             </figcaption>

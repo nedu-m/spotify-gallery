@@ -31,6 +31,14 @@
   display: none;
 }
 
+.external::after {
+  content: "↗";
+  padding-left: 2px;
+  position: absolute;
+  width: 8.5em;
+  height: 2em;
+}
+
 @media screen and (min-width: 53em) {
   .item__wrap {
     height: 100vh;
