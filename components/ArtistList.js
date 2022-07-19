@@ -1,3 +1,4 @@
+import { onEnter, onLeave } from './Animate';
 import Image from 'next/image';
 import listStyle from '../styles/Listing.module.css'
 
@@ -6,7 +7,11 @@ export default function ArtistList({ artists }) {
     <>
       <section className={listStyle.item__wrap}>
         {artists.map((artist) => (
-          <figure className={listStyle.item} data-article="artist-1" key={artist.id}>
+          <figure className={listStyle.item}
+            key={artist.id}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+          >
             <Image
               src={artist.coverImage}
               alt={artist.name}

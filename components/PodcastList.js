@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { onEnter, onLeave } from './Animate';
 import listStyle from '../styles/Listing.module.css'
 
 export default function PodcastList({ podcasts }) {
@@ -6,7 +7,11 @@ export default function PodcastList({ podcasts }) {
     <>
       <section className={listStyle.item__wrap}>
         {podcasts.map((podcast) => (
-          <figure className={listStyle.item} data-article="artist-1" key={podcast.id}>
+          <figure className={listStyle.item}
+            key={podcast.id}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+          >
             <Image
               src={podcast.coverImage}
               alt={podcast.name}
