@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { onEnter, onLeave } from './Animate';
 import listStyle from '../styles/Listing.module.css'
 
 export default function PlayList({ playlists }) {
@@ -6,7 +7,11 @@ export default function PlayList({ playlists }) {
     <>
       <section className={listStyle.item__wrap}>
         {playlists.map((playlist) => (
-          <figure className={listStyle.item} data-article="artist-1" key={playlist.id}>
+          <figure className={listStyle.item} data-article="artist-1"
+            key={playlist.id}
+            onMouseEnter={onEnter}
+            onMouseLeave={onLeave}
+          >
             <Image
               src={playlist.coverImage}
               alt={playlist.name}

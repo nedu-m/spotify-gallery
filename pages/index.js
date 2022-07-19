@@ -1,5 +1,4 @@
 // import useSWR from 'swr';
-import { useState } from 'react';
 import Head from 'next/head';
 import { getArtist } from './api/spotify';
 import Main from '../components/Main'
@@ -34,7 +33,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ artists, error }) {
-
   return (
     <>
       <Head>
