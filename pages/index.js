@@ -35,7 +35,7 @@ export async function getStaticProps() {
 export default function Home({ artists, error }) {
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className={styles.error}>{error}</div>;
   }
 
   return (
