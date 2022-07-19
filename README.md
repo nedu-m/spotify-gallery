@@ -1,4 +1,4 @@
-## Getting Started
+## Getting Started with Favify
 
 First, run the development server:
 
