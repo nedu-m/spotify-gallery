@@ -1,6 +1,8 @@
 ## Getting Started with Favify
 
-First, run the development server:
+#Clone repo, then run cd / "repo name" and npm i to install dependencies.
+
+Run the development server:
 
 ```bash
 npm run dev
