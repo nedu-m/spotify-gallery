@@ -57,18 +57,3 @@ export const getPodcastList = async () => {
     },
   });
 };
-
-// eslint-disable-next-line import/no-anonymous-default-export
-// export default async (_, res) => {
-//   const response = await getArtist();
-
-//   if (response.status === 204 || response.status > 400) {
-//     return res.status(200).json(`${response.status} ${response.statusText}`);
-//   }
-
-//   const artists = await response.json();
-
-//   return res.status(200).json({
-//     artists
-//   });
-// };
